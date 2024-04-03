@@ -2,3 +2,12 @@
 // .sidebar a {
 //   text-shadow: rgba(0, 0, 0, 0.25) 0.1rem 0.1rem 0.15rem;
 // }
+img.avatar{
+    width:9rem;
+    max-width: 100%;
+    aspect-ratio: 1 / 1 !important;
+}
+
+.sidebar-about .avatar{
+    aspect-ratio: 1 / 1 !important;
+}

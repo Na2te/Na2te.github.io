@@ -17,7 +17,7 @@ redirect_from:
 
 A boutique Jekyll theme for hackers, nerds, and academics.  
 {:.lead}
-
+<!-- :toc를 하면 글 목록이 리스트로 자동 정렬 및 생성 된다-->
 1. this list will be replaced by the toc
 {:toc .large-only}
 
