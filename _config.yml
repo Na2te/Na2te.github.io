@@ -50,10 +50,14 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             PS
-    url:               /ps/
-  - title:             CS
-    url:               /cs/
+  - title:             Study
+    url:               /study/
+    submenu:
+      - title : PS
+        url: /ps/
+    submenu:
+      - title:             CS
+        url:               /cs/
   - title:             Project
     url:               /project/
   - title:             About
