@@ -44,7 +44,7 @@
 
 .menu-wrapper{
   display: flex;
-  text-align: left;
+  text-align: center;
   margin-left: 10%;
   margin-bottom: 0%;
 
@@ -61,8 +61,8 @@
     display: block;
   }
   
-  nav.sidebar-nav.heading > ul{
-    text-align: center
-  }
+  // nav.sidebar-nav.heading > ul> li> div.menuwrapper{
+  //   text-align: center
+  // }
 }
 
