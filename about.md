@@ -13,16 +13,8 @@ redirect_from:
 
 <!--author-->
 
-## Hydejack
-
-A boutique Jekyll theme for hackers, nerds, and academics.  
-{:.lead}
-
 <!-- :toc를 하면 글 목록이 리스트로 자동 정렬 및 생성 된다-->
 <!-- 이거 하면 이 태그 위에 적혀있는 글을 사진 아래에 작은 설명 같은 걸로 첨부하는 것 가능{:.figcaption} -->
-
-1. this list will be replaced by the toc
-   {:toc .large-only}
 
 [blog]: /
 [portfolio]: https://hydejack.com/examples/
