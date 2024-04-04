@@ -13,9 +13,8 @@ img.avatar{
 }
 
 
-.menu-wrapper{
+.menu-wrapper {
     display: flex;
-    text-align: center !important;
     margin-left: 10%;
     margin-bottom: 0%;
   
@@ -36,3 +35,7 @@ img.avatar{
     //   text-align: center
     // }
   }
+  nav.sidebar-nav.heading > ul> li{
+    justify-content:center;
+    text-align: center !important;
+}
