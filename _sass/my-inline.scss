@@ -11,3 +11,28 @@ img.avatar{
 .sidebar-about .avatar{
     aspect-ratio: 1 / 1 !important;
 }
+
+
+.menu-wrapper{
+    display: flex;
+    text-align: center !important;
+    margin-left: 10%;
+    margin-bottom: 0%;
+  
+    input[type=checkbox]{
+      display: none;
+    }
+  
+    input[type=checkbox] ~ ul{
+      display: none;
+      list-style: none;
+    }
+  
+    input[type=checkbox]:checked ~ ul{
+      display: block;
+    }
+    
+    // nav.sidebar-nav.heading > ul> li> div.menuwrapper{
+    //   text-align: center
+    // }
+  }
