@@ -53,8 +53,8 @@ menu:
   - title:             Study
     url:               /study/
     submenu:
-      - title : PS
-        url: /ps/
+      - title :            PS
+        url:               /ps/
     submenu:
       - title:             CS
         url:               /cs/
