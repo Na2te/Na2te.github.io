@@ -60,5 +60,9 @@
   input[type=checkbox]:checked ~ ul{
     display: block;
   }
+  
+  nav.sidebar-nav.heading{
+    text-align: center
+  }
 }
 
