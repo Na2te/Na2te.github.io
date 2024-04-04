@@ -14,8 +14,7 @@ img.avatar{
 
 
 .menu-wrapper {
-    
-    margin-left: 10%;
+
     margin-bottom: 0%;
   
     input[type=checkbox]{
@@ -39,4 +38,9 @@ img.avatar{
     display:block;
     justify-content:center;
     text-align: center !important;
+}
+
+.sidebar-nav-item {
+    display: inline;
+    margin-bottom: 0.5rem;
 }
