@@ -44,6 +44,9 @@ img.avatar{
     display: inline;
     margin-bottom: 0.5rem;
 }
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(1){
+  display:inline-block
+}
 
 // #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(2) > ul {
 //   padding-left: 0 !important;
