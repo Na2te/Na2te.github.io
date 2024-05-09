@@ -62,8 +62,12 @@ img.avatar{
   text-align: center;
 }
 
-#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(1){
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) {
   padding-right: 24px;
+}
+
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > a{
+  parring-right: 30px;
 }
 
 
