@@ -30,8 +30,9 @@
                     <div class="menu-wrapper">
                         <!-- 서브 노드 아래에 또다른 서브 노드 있을 때 버튼 생성 -->
                         {% if subnode.menu %}
-                        <button class="spread-btn" onclick="javascript:unspread({{count+1}})">
-                            <span id="spread-icon-{{count+1}}" class="material-icons">arrow_right</span>
+                        {% assign cnt = count | plus: 1 %}
+                        <button class="spread-btn" onclick="javascript:unspread({{cnt+1}})">
+                            <span id="spread-icon-{{cnt+1}}" class="material-icons">arrow_right</span>
                         </button>
                         {% endif %}
                         <a
