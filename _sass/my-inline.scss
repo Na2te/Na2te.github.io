@@ -46,7 +46,8 @@ img.avatar{
 }
 
 #_sidebar > div.sidebar-sticky > nav > ul{
-  display:inline-block
+  display:inline-block;
+  text-align: left;
 }
 
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(1){

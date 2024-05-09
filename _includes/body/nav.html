@@ -26,7 +26,7 @@
             <ul>
                 <!-- 메뉴 아래에 서브 노드가 있을 때 -->
                 {% for subnode in node.submenu %}
-                {% assign cnt = count+1 | plus: 1 %}
+                {% assign cnt = cnt | plus: 1 %}
                 <li>
                     <div class="menu-wrapper">
                         <!-- 서브 노드 아래에 또다른 서브 노드 있을 때 버튼 생성 -->
