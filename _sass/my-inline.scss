@@ -46,8 +46,7 @@ img.avatar{
 }
 
 #_sidebar > div.sidebar-sticky > nav > ul{
-  display:inline-block;
-  text-align: left;
+  
 }
 
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(1){
@@ -64,6 +63,17 @@ img.avatar{
 //   left: 35% !important;
 //   padding-top:3px !important;
 // }
+
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1){
+  text-align: left;
+}
+
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(2){
+  text-align: center;
+}
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(3){
+  text-align: center;
+}
 
 .spread-btn{
   align-items:left;
