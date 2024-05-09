@@ -29,7 +29,7 @@
                 <li>
                     <div class="menu-wrapper">
                         <!-- 서브 노드 아래에 또다른 서브 노드 있을 때 버튼 생성 -->
-                        {% if subnode.submenu %}
+                        {% if subnode.menu %}
                         <button class="spread-btn" onclick="javascript:spread({{count}})">
                             <span id="spread-icon-{{count}}" class="material-icons">arrow_drop_down</span>
                         </button>
@@ -43,11 +43,11 @@
                             {{ subnode.name | default:subnode.title }}
                         </a>
                     </div>
-                    {% if subnode.submenu %}
+                    {% if subnode.menu %}
                     <div class="menu-wrapper">
                         <input type="checkbox" id="folder-checkbox-{{count}}" checked>
                         <ul>
-                            {% for subnodemenu in subnode.submenu %}
+                            {% for subnodemenu in subnode.menu %}
                             <li>
                                 <a
                                         class="sidebar-nav-item {% if subnode.external  %}external{% endif %}"
