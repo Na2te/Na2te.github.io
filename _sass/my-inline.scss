@@ -45,6 +45,8 @@ img.avatar{
     margin-bottom: 0.5rem;
 }
 .spread-btn{
+  display: flex;
+  align-items:center;
   position:relative !important;
   left: 0% !important;
   padding-top:0px !important;
