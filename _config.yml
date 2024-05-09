@@ -54,6 +54,11 @@ menu:
     submenu:
       - title: PS
         url: /ps/
+        menu:
+          - title: BOJ
+            url: /boj/
+          - title: Programmers
+            url: /programmers/
       - title: CS
         url: /cs/
         menu:
