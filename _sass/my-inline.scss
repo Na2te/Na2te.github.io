@@ -14,7 +14,6 @@ img.avatar{
 
 
 .menu-wrapper {
-    position : relative;
     text-align:center;
     margin-bottom: 0%;
   
@@ -45,13 +44,16 @@ img.avatar{
     display: inline;
     margin-bottom: 0.5rem;
 }
+
+.menu_wrapper .menu_wrapper ul{
+  padding-left: 0 !important;
+}
+
 .spread-btn{
   align-items:center;
   position:absolute !important;
-  // top: -55% !important;
   left: 35% !important;
-
-  padding-top:10px !important;
+  padding-top:3px !important;
 }
 
 // .material-icons{
