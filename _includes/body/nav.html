@@ -24,14 +24,43 @@
         <div class="menu-wrapper">
             <input type="checkbox" id="folder-checkbox-{{count}}" checked>
             <ul>
+                <!-- 메뉴 아래에 서브 노드가 있을 때 -->
                 {% for subnode in node.submenu %}
                 <li>
-                    <a
-                            class="sidebar-nav-item {% if node.external  %}external{% endif %}"
-                            href="{% include_cached smart-url url=subnode.url %}"
-                    >
-                        {{ subnode.title }}
-                    </a>
+                    <div class="menu-wrapper">
+                        <!-- 서브 노드 아래에 또다른 서브 노드 있을 때 버튼 생성 -->
+                        {% if subnode.submenu %}
+                        <button class="spread-btn" onclick="javascript:spread({{count}})">
+                            <span id="spread-icon-{{count}}" class="material-icons">arrow_drop_down</span>
+                        </button>
+                        {% endif %}
+                        <a
+                                {% if forloop.first %}id="_drawer--opened"{% endif %}
+                                href="{% include_cached smart-url url=url %}"
+                                class="sidebar-nav-item {% if subnode.external  %}external{% endif %}"
+                                {% if subnode.rel %}rel="{{ subnode.rel }}"{% endif %}
+                        >
+                            {{ subnode.name | default:subnode.title }}
+                        </a>
+                    </div>
+                    {% if subnode.submenu %}
+                    <div class="menu-wrapper">
+                        <input type="checkbox" id="folder-checkbox-{{count}}" checked>
+                        <ul>
+                            {% for subnodemenu in subnode.submenu %}
+                            <li>
+                                <a
+                                        class="sidebar-nav-item {% if subnode.external  %}external{% endif %}"
+                                        href="{% include_cached smart-url url=subnodemenu.url %}"
+                                >
+                                    {{ subnodemenu.title }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
                 </li>
                 {% endfor %}
             </ul>
@@ -64,4 +93,3 @@
     {% endfor %}
     {% endif %}
 </ul>
-
