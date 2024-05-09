@@ -54,7 +54,6 @@ menu:
     submenu:
       - title: PS
         url: /ps/
-      menu:
       - title: CS
         url: /cs/
         submenu:
