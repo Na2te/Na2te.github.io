@@ -21,6 +21,7 @@
             </a>
         </div>
         {% if node.submenu %}
+        {% assign cnt = count+1 | plus: 1 %}
         <div class="menu-wrapper">
             <input type="checkbox" id="folder-checkbox-{{count}}" checked>
             <ul>
@@ -30,9 +31,8 @@
                     <div class="menu-wrapper">
                         <!-- 서브 노드 아래에 또다른 서브 노드 있을 때 버튼 생성 -->
                         {% if subnode.menu %}
-                        {% assign cnt = count | plus: 1 %}
-                        <button class="spread-btn" onclick="javascript:unspread({{cnt+1}})">
-                            <span id="spread-icon-{{cnt+1}}" class="material-icons">arrow_right</span>
+                        <button class="spread-btn" onclick="javascript:unspread({{cnt}})">
+                            <span id="spread-icon-{{cnt}}" class="material-icons">arrow_right</span>
                         </button>
                         {% endif %}
                         <a
@@ -46,7 +46,7 @@
                     </div>
                     {% if subnode.menu %}
                     <div class="menu-wrapper">
-                        <input type="checkbox" id="folder-checkbox-{{count}}" checked>
+                        <input type="checkbox" id="folder-checkbox-{{cnt}}" checked>
                         <ul>
                             {% for subnodemenu in subnode.menu %}
                             <li>
