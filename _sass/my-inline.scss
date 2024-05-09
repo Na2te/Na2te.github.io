@@ -47,18 +47,18 @@ img.avatar{
 .spread-btn{
   align-items:center;
   position:relative !important;
-  left: 0% !important;
+  left: -15% !important;
+
   padding-top:0px !important;
 }
 
-.material-icons{
-  position: absolute; /* 이미지를 절대 위치로 설정 */
-    top: 50%; /* 부모 요소의 50% 위치에서부터 */
-    left: 50%; /* 부모 요소의 50% 위치에서부터 */
-    transform: translate(-50%, -50%); /* 이미지의 중심을 부모 요소의 중심으로 이동 */
-    max-width: 100%; /* 이미지 최대 너비 설정 */
-    max-height: 100%;
-}
+// .material-icons{
+//     top: 50%; /* 부모 요소의 50% 위치에서부터 */
+//     left: 50%; /* 부모 요소의 50% 위치에서부터 */
+//     transform: translate(-50%, -50%); /* 이미지의 중심을 부모 요소의 중심으로 이동 */
+//     max-width: 100%; /* 이미지 최대 너비 설정 */
+//     max-height: 100%;
+// }
 
 #_sidebar > div.sidebar-sticky > div.sidebar-about > p{
   white-space: pre-line;
