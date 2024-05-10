@@ -22,9 +22,9 @@ tags: [blog]
 2. Data Bus : 데이터 전송
 3. Control Bus : R/W 같은 명령
 
-## Program이란
-
-Instruction과 Data의 집합
+## Program
+- ### 정의
+  Instruction과 Data의 집합
 
 Disk에 Text와 Data가 저장되어 있는 이진 시퀀스이자 Passive Entity
 Program이 실행될 때 비로소 Process
@@ -137,28 +137,34 @@ host의 논리 주소를 ssd의 물리 주소로 변환
 2. ALU : Arithmetic and Logical Unit : 수학적 계산을 처리하는 것
 3. 기타 레지스터들
 
-## CPU란
+## CPU
 
-ALU를 포함한 **Register와 Control Unit, Cache 등으로 instruction을 수행하는 것**
-Memory에 올라온 Instruction을 처리하는 것
++ ### 정의
+  ALU를 포함한 **Register와 Control Unit, Cache 등으로 instruction을 수행하는 것**
+  Memory에 올라온 Instruction을 처리하는 것
 
-### 특수 목적 레지스터
++ ### 특수 목적 레지스터
 
-1. #### PC
-   Program Counter
-   다음 실행할 명령어의 주소를 가리킴
-2. #### IR
-   Instruction Register
-   불러온 Instruction을 저장
-3. #### PSW
-   Program Status Word
-   프로그램의 상태 저장( kernel 모드인지, user 모드인지 등)
-4. #### MAR
-   Memory Address Register
-   불러올 메모리의 주소 저장
-5. #### MBR
-   Memory Buffer Register
-   메모리에서 가져온 값 저장
+  1. #### PC
+      Program Counter
+      다음 실행할 명령어의 주소를 가리킴
+
+  2. #### IR
+      Instruction Register
+      불러온 Instruction을 저장
+  3. #### PSW
+      Program Status Word
+      프로그램의 상태 저장( kernel 모드인지, user 모드인지 등)
+  4. #### MAR
+      Memory Address Register
+      불러올 메모리의 주소 저장
+  5. #### MBR
+      Memory Buffer Register
+      메모리에서 가져온 값 저장
+
+## CPU 처리 단계
+Fetch -> Execution -> Interrupt 체크의 반복
+Fetch : 메모리로부터 IR 레지스터로 명령어를 가져다 놓는 것
 
 ## ISA
 
@@ -166,10 +172,7 @@ Instrction Set Architecture
 **Instruction과 Machine State(Register, Memory)를 관리하는** 프로그램에서 **최하위 레벨의 API, 명령어 집합 구조**
 ISA마다 OPCode(명령어)와 Operand(피연산자)가 다르다
 
-## CPU 처리 단계
 
-Fetch -> Execution -> Interrupt 체크의 반복
-Fetch : 메모리로부터 IR 레지스터로 명령어를 가져다 놓는 것
 
 ## Instruction 종류
 
