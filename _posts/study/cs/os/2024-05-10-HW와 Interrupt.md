@@ -242,7 +242,7 @@ IO Controller는 **적어도 3개의 Address(Port)** 가 버스에 존재하는�
 
 [참고 링크](https://saksin.tistory.com/1221)
 
-- ## Port mapped IO
+- ### Port mapped IO
 
   IO Controller가 시스템 버스에 연결되고, 이때 내부의 Port들이 메모리처럼 별도의 주소로 매핑되고, I/O Instruction Trigger로 접근
 
@@ -253,11 +253,11 @@ IO Controller는 **적어도 3개의 Address(Port)** 가 버스에 존재하는�
 
 ## I/O 통신 방법 ( Processor가 I/O 처리를 보낸 후 Interrupt가 오기 전까지 )
 
-- ## Programmed I/O(Polling I/O)
+- ### Programmed I/O(Polling I/O)
   CPU가 I/O Controller에게 명령을 내린 뒤 계속해서 Status를 확인하며 끝날 때까지 기다리는 방식 (Busy-Wait, Non-Block - Async)
-- ## Interrupt Driven I/O
+- ### Interrupt Driven I/O
   I/O Controller에게 명령을 내리고, Interrupt가 올 때까지 다른 일을 처리하는 방식 (Non-Block - Async)
-- ## DMA(Direct Message Access)
+- ### DMA(Direct Message Access)
 
   대용량의 I/O를 word 단위로 왔다 갔다 하면서 Interrupt를 보내긴 비효율적임
 
@@ -281,13 +281,13 @@ Symmetric Multi-Processor
 
 ## Mutiple Interrupts 처리 방법
 
-- ## Sequential Interrupt Processing
+- ### Sequential Interrupt Processing
   인터럽트가 처리되는 동안 다른 인터럽트들은 disable 했다가 끝나면 re enable해서 pending되었던 다른 인터럽트들을 처리
   - #### 장점
     구현이 단순함
   - #### 단점
     우선순위를 고려하지 않음
-- ## Nested Interrupt Processing
+- ### Nested Interrupt Processing
   인터럽트 간 우선순위를 설정하고, 인터럽트를 처리하고 있었더라도 더 높은 우선순위의 인터럽트가 발생하면 그것 먼저 처리한 뒤 이어서 진행
   - #### 장점
     우선순위를 고려하여 처리할 수 있음
