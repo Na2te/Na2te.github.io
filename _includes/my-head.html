@@ -16,6 +16,8 @@
 
 
 <script type="module">
+    window.mermaid.initialize({startOnLoad:true});
+    window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
     document.querySelector('hy-push-state').addEventListener('load', () => {
         let tocElement = document.getElementById("markdown-toc");
   
