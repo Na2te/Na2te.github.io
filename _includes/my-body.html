@@ -16,6 +16,16 @@
 Code for integrating CloudFlare's email protection with Hydejack's single page app loading.
 -->
 <script>
+  window.mermaid.initialize({startOnLoad:true});
+  window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+  document.addEventListener("DOMContentLoaded", () => {
+    alert("DOM이 준비되었습니다!");
+    window.mermaid.initialize({startOnLoad:true});
+    window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+  });
+</script>
+
+<script>
   document.getElementById('_pushState').addEventListener('hy-push-state-after', function (e) {
     function e(e){
       (console.error?console.error:console.log).call(console,e)
