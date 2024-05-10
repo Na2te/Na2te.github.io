@@ -173,13 +173,13 @@ Fetch : 메모리로부터 IR 레지스터로 명령어를 가져다 놓는 것
 
 ## Instruction 종류
 
-1. ## Data Processing
+1. ### Data Processing
    데이터를 처리하는 것
-2. ## Control
+2. ### Control
    if 문 등 분기 처리 하는 것
-3. ## Processor-Memory
+3. ### Processor-Memory
    메모리에 접근하는 것
-4. ## Processor-I/O
+4. ### Processor-I/O
    I/O에 접근하는 것
 
 ## Interrupt란
