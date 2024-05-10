@@ -1,0 +1,302 @@
+---
+layout: post
+title: 02. HW와 Interrupt
+sitemap: false
+categories: [study, cs, os]
+tags: [blog]
+---
+
+- toc
+{:toc .large-only}
+
+## 컴퓨터 구성요소
+
+1. Processor
+2. Main Memory
+3. IO Module
+4. System bus
+
+## System Bus 종류
+
+1. Address Bus : 소스, 목적지 지정
+2. Data Bus : 데이터 전송
+3. Control Bus : R/W 같은 명령
+
+## Program이란
+
+Instruction과 Data의 집합
+
+Disk에 Text와 Data가 저장되어 있는 이진 시퀀스이자 Passive Entity
+Program이 실행될 때 비로소 Process
+**하나의 Program은 여러 개의 Process가 될 수 있음**
+**(여러 User들이 같은 Program을 실행할 때)**
+
+## Process
+
+프로그램이 메모리로 적재되어 구동되는 것
+
+- ### 정의
+
+  - 실행 가능한 Program이 Memory에 올라와서 실행시킬 수 있는 것
+
+  - 실행 시퀀스이자 Active Entity
+
+  - 현재 상태(Program + stack)와 자원을 얼마나 사용하고 있는지, 명령을 실행하고 관리하는 Activity의 단위
+
+- ### 기본 구성 요소
+  - Program Code
+  - 코드와 연관된 Data 집합
+- ### 특성
+  - 실행 단위 ( Thread, Light Weight Process )
+  - 자원 소유권 단위 ( Process, Task )
+
+
+## 레지스터 존재 이유
+
+IO 처리 시간이 느리기 때문에 Memory Bus로의 접근을 최소화 하기 위해서
+
+## Memory
+
+  - ### Memory 계층
+
+    Memory 계층이 높을 수록 빠르지만 비쌈
+
+  - ### Memory 속도
+
+    Cache > Main Memory > Disk Memory 순으로 빠름
+
+  - ### Memory Locality
+
+    - #### Temporal Locality (시간적)
+      한번 접근한 것은 다시 접근하게 될 확률이 높음
+    - #### Spatial Locality (공간적)
+      한번 접근한 것의 주위 공간에 접근하게 될 확률이 높음
+
+  - ### Memory 계층 목표
+
+    가장 낮은 수준의 메모리의 크기와 비용으로, 가장 높은 수준의 메모리의 속도를 가지는 것처럼 작동하는 가상 메모리를 제공하는 것
+
+    이를 달성하기 위해 Memory Locality를 잘 활용해야 함
+
+  - ### Memory 종류
+
+    1. SRAM : Static RAM, 6개의 트랜지스터가 1bit를 구성, 가성비 비쌈, 매우 빠르고 refresh 필요 X
+
+    2. DRAM : Dynamic RAM, 1개의 트랜지스터, 1개의 캐퍼시터로 1bit을 구성, 가성비 쌈, SRAM에 비해 느리고 **refresh 필요**
+
+    3. FLASH MEMORY : Floating gate를 이용해서 구현, **읽고 쓰는 속도 비대칭**, **No in-place update (쓰려고 하는 섹터에 이미 데이터가 있었다면 수정 불가 => 지우고 써야 함)**, Non volatile( 전원 공급이 끊겨도 데이터 유지 )
+
+  - ### SRAM, DRAM 차이
+
+    |       구분        |      SRAM      |             DRAM              |
+    | :---------------: | :------------: | :---------------------------: |
+    |     1Bit 구성     | 6개 트랜지스터 | 1개 트랜지스터와 1개 캐퍼시터 |
+    |  용량 대비 가격   |      비쌈      |        쌈(상대적으로)         |
+    |       속도        |      빠름      |       느림(상대적으로)        |
+    | refresh 필요 유무 |       X        |               O               |
+    |    휘발성 유무    |       O        |               O               |
+
+  - ### Flash Memory 특징
+
+    - Floating gate를 이용해서 구현
+    - **읽고 쓰는 속도 비대칭**
+    - **No in-place update** (쓰려고 하는 섹터에 이미 데이터가 있었다면 수정 불가 => 지우고 써야 함)
+    - **내구성 한계** (블럭마다 지우고 쓸 수 있는 횟수가 존재, 다 쓰면 해당 블럭 사용 불가 => 모든 블럭이 균등하게 유지되는게 좋음 => wear leveling)
+    - Non-Volatile (전원이 꺼져도 데이터가 유지됨)
+
+
+  <div class="mermaid">
+    flowchart  TD;
+    A(Memory)  -->  B(Non Volatile);
+    A(Memory)  -->  C(Volatile);
+    C(Volatile)  -->  D(SRAM);
+    C(Volatile)  -->  E(DRAM);
+    B(Non Volatile)  -->  F(Flash Memory);
+  </div>
+
+## HDD 특징
+Hard Disk Drive
++ 용량이 크다
++ 충격에 약하다
++ 느리다
+
+## SSD란
+
+Flash Memory 기반으로 HDD처럼 사용하기 위해 FTL(Flash Translation Layer)로 Interface화 함
+읽기 쓰기는 page 단위, 삭제는 block단위
+
+**Write amplication**
+
+## FTL이란
+
+host의 논리 주소를 ssd의 물리 주소로 변환
+
+## Processor 구성 요소
+
+1. Algebra : Operator와 Operand의 집합 (연산자와 피연산자)
+2. ALU : Arithmetic and Logical Unit : 수학적 계산을 처리하는 것
+3. 기타 레지스터들
+
+## CPU란
+
+ALU를 포함한 **Register와 Control Unit, Cache 등으로 instruction을 수행하는 것**
+Memory에 올라온 Instruction을 처리하는 것
+
+### 특수 목적 레지스터
+
+1. #### PC
+   Program Counter
+   다음 실행할 명령어의 주소를 가리킴
+2. #### IR
+   Instruction Register
+   불러온 Instruction을 저장
+3. #### PSW
+   Program Status Word
+   프로그램의 상태 저장( kernel 모드인지, user 모드인지 등)
+4. #### MAR
+   Memory Address Register
+   불러올 메모리의 주소 저장
+5. #### MBR
+   Memory Buffer Register
+   메모리에서 가져온 값 저장
+
+## ISA
+
+Instrction Set Architecture
+**Instruction과 Machine State(Register, Memory)를 관리하는** 프로그램에서 **최하위 레벨의 API, 명령어 집합 구조**
+ISA마다 OPCode(명령어)와 Operand(피연산자)가 다르다
+
+## CPU 처리 단계
+
+Fetch -> Execution -> Interrupt 체크의 반복
+Fetch : 메모리로부터 IR 레지스터로 명령어를 가져다 놓는 것
+
+## Instruction 종류
+
+1. ## Data Processing
+   데이터를 처리하는 것
+2. ## Control
+   if 문 등 분기 처리 하는 것
+3. ## Processor-Memory
+   메모리에 접근하는 것
+4. ## Processor-I/O
+   I/O에 접근하는 것
+
+## Interrupt란
+
+IO 입출력이나 각종 예외 상황을 처리하기 위해 **프로세서에게 알리는 신호**
+CPU와는 별도로 **비동기적으로 발생**
+
+## Interrupt 목적
+
+**CPU Utilization을 위해**
+**I/O 처리가 Processor보다 속도가 현저하게 느리기 때문에** CPU를 효율적으로 쓰기 위해서 I/O 처리 등을 시키면 그게 끝날 때까지 **기다리지 않고 다른 작업을 수행하다가, 신호가 오면 처리한다**
+**항상 Kernel 모드에서 실행된다**
+
+## Interrupt 처리 과정
+
+1. I/O Devidce가 Interrupt 발생
+
+2. CPU가 Instruction 처리 후 Interrupt 왔는지 체크
+
+3. 있다면, 있는걸 확인했다고 ACK을 보냄
+
+4. 기존의 PC와 PSW 상태를 저장 (Memory의 Stack에 보냄)
+
+5. PC를 Interrupt를 처리하기 위한 Interrupt Handler 주소로 설정, PSW를 커널 모드로 설정
+
+6. 레지스터 내부 값들을 저장 (Memory의 Stack에 보냄)
+
+7. Interrupt를 잠시 받지 않음(Disable 처리)
+
+8. Interrupt Handler로 들어가서 ISR 실행
+   (**Interrupt Service Routine : 인터럽트에 특화된 Operation**, Interrupt Handler의 부분집합)
+
+9. ISR에는 어떤 Interrupt가 왔을 때 어떤 함수를 실행할지 명세하는 Table인 IDT가 존재
+
+10. 처리 끝나면 다시 원래 상태로 복원
+
+## PIC
+
+Programmable Interrupt Controller
+**Interrupt가 왔는지(INTR 핀),**
+**어디에서 왔는지 알려주고(IRQ# 핀),**
+**CPU와 통신(ACK 핀, Interrupt 확인 등)**
+Interrupt의 **우선순위 조정 및 Masking 처리**
+
+## IO Controller
+
+IO Controller는 IO Devices에게 IO관련 Operation을 control할 수 있는 시스템 SW를 허용하여 Communication함
+
+IO Controller는 **적어도 3개의 Address(Port)** 가 버스에 존재하는데, **각각이 Controller의 register에 대응되며 이를 IO Port Register라고 함**
+
+## IO Port Register
+
+|                        |            역할             |
+| :--------------------: | :-------------------------: |
+|       **Status**       | 디바이스의 현재 상태를 확인 |
+| **Control<br>Command** |   디바이스에게 작업 명령    |
+|        **Data**        |  디바이스와 데이터 송수신   |
+
+## I/O Address Space 구현 방식
+
+[참고 링크](https://saksin.tistory.com/1221)
+
+- ## Port mapped IO
+
+  IO Controller가 시스템 버스에 연결되고, 이때 내부의 Port들이 메모리처럼 별도의 주소로 매핑되고, I/O Instruction Trigger로 접근
+
+- ### Memory mapped IO
+  기존의 Memory Address 내에 IO Address 공간을 할당해서 사용하는 것
+  => 메모리 내에 위치하므로 메모리의 load, store Instruction으로도 IO에 접근할 수 있다
+  (I/O를 위한 Address로 Physical Memory에는 접근 불가)
+
+## I/O 통신 방법 ( Processor가 I/O 처리를 보낸 후 Interrupt가 오기 전까지 )
+
+- ## Programmed I/O(Polling I/O)
+  CPU가 I/O Controller에게 명령을 내린 뒤 계속해서 Status를 확인하며 끝날 때까지 기다리는 방식 (Busy-Wait, Non-Block - Async)
+- ## Interrupt Driven I/O
+  I/O Controller에게 명령을 내리고, Interrupt가 올 때까지 다른 일을 처리하는 방식 (Non-Block - Async)
+- ## DMA(Direct Message Access)
+
+  대용량의 I/O를 word 단위로 왔다 갔다 하면서 Interrupt를 보내긴 비효율적임
+
+  기존까지는 word 연산 단위였다면, Block 단위 대용량 I/O를 처리할 필요 있음
+
+  => DMA에게 I/O 커맨드 블럭을 보내면, DMA가 직접 메모리로 접근해 I/O 처리를 한 뒤 CPU에게 Interrupt 보냄
+
+  I/O Controller와 분리된 방식, 통합된 방식 다 구현 가능
+
+## APIC
+
+Advanced Programmable Interrupt Controller
+어떤 프로세스에게 어떤 Interrupt를 줄 것인지도 결정하는 Controller
+
+## SMP
+
+Symmetric Multi-Processor
+대칭 멀티 프로세서
+
+한 시스템에 여러개의 프로세서가 있을 때, APIC을 이용해서, 공유 Device에서 발생하는 Interrupt를 프로세서별로 처리할 수 있다, 또한, 각 프로세서 별로 가지고 있는 Local Device에 대한 Interrupt 관련 처리를 위한 Local APIC이 존재한다
+
+## Mutiple Interrupts 처리 방법
+
+- ## Sequential Interrupt Processing
+  인터럽트가 처리되는 동안 다른 인터럽트들은 disable 했다가 끝나면 re enable해서 pending되었던 다른 인터럽트들을 처리
+  - #### 장점
+    구현이 단순함
+  - #### 단점
+    우선순위를 고려하지 않음
+- ## Nested Interrupt Processing
+  인터럽트 간 우선순위를 설정하고, 인터럽트를 처리하고 있었더라도 더 높은 우선순위의 인터럽트가 발생하면 그것 먼저 처리한 뒤 이어서 진행
+  - #### 장점
+    우선순위를 고려하여 처리할 수 있음
+  - #### 단점
+    구현이 복잡함
+
+## Interrupt 장단점
+
+- ### 장점
+  I/O를 처리하려고 기다리지 않아도 되서 CPU를 효율적으로 활용 가능
+- ### 단점
+  Interrupt를 처리하기 위해 register를 Memory에 저장했다가 복구하는 작업 필요
