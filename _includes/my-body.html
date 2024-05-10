@@ -16,6 +16,22 @@
 Code for integrating CloudFlare's email protection with Hydejack's single page app loading.
 -->
 <script>
+const observeUrlChange = () => {
+  let oldHref = document.location.href;
+  const body = document.querySelector("body");
+  const observer = new MutationObserver(mutations => {
+    if (oldHref !== document.location.href) {
+      oldHref = document.location.href;
+      window.mermaid.initialize({startOnLoad:true});
+      window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));    
+    }
+  });
+  observer.observe(body, { childList: true, subtree: true });
+};
+
+window.onload = observeUrlChange;
+</script>
+<script>
   window.mermaid.initialize({startOnLoad:true});
   window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
   console.log(document.querySelector("#_pushState"));
