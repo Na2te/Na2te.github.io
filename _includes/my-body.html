@@ -48,6 +48,9 @@ window.onload = observeUrlChange;
       (console.error?console.error:console.log).call(console,e)
     }
 
+    window.mermaid.initialize({startOnLoad:true});
+    window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+
     function t(e){
       return l.innerHTML='<a href="'+e.replace(/"/g,"&quot;")+'"></a>',l.childNodes[0].getAttribute("href")
     }
