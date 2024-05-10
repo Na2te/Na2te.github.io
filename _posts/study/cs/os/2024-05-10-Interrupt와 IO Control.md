@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 02. Interrupt와 IO Control
+title: 03. Interrupt와 IO Control
 sitemap: false
 categories: [study, cs, os]
 tags: [blog]
