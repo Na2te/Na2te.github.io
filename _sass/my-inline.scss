@@ -66,8 +66,13 @@ img.avatar{
   padding-right: 24px;
 }
 
+// Programmers 글자 우측 정렬
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > a{
   padding-right: 80px;
+}
+
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(2) > ul > li:nth-child(2) > a{
+  padding-right: 50px;
 }
 
 
