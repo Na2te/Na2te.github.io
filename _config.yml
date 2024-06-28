@@ -64,8 +64,8 @@ menu:
             url: /os/
           - title: Network
             url: /network/
-          - title: Etc
-            url: /etc/
+      - title: ETC
+        url: /etc/
   - title: Project
     url: /project/
   - title: About
