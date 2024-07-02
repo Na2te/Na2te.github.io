@@ -100,6 +100,10 @@ img.avatar{
 #_sidebar > div.sidebar-sticky{
   overflow-y: auto;
 }
+
+#_sidebar > div.sidebar-sticky::-webkit-scrollbar {
+  display: none;
+}
 // #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(1) > button{
 
 // }
