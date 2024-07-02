@@ -12,7 +12,7 @@
             </button>
             {% endif %}
             <a
-                    {% if forloop.first %}id="_drawer--opened"{% endif %}
+                    id="_drawer--opened"
                     href="{% include_cached smart-url url=url %}"
                     class="sidebar-nav-item {% if node.external  %}external{% endif %}"
                     {% if node.rel %}rel="{{ node.rel }}"{% endif %}
@@ -37,7 +37,6 @@
                         </button>
                         {% endif %}
                         <a
-                                {% if forloop.first %}id="_drawer--opened"{% endif %}
                                 href="{% include_cached smart-url url=url %}"
                                 class="sidebar-nav-item {% if subnode.external  %}external{% endif %}"
                                 {% if subnode.rel %}rel="{{ subnode.rel }}"{% endif %}
