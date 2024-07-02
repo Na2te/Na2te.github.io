@@ -68,9 +68,9 @@ menu:
         url: /etc/
   - title: Project
     url: /project/
-      submenu: 
-        - title: Lucky 111₂
-          url: /lucky 111₂
+    submenu: 
+      - title: Lucky 111₂
+        url: /lucky 111₂
 
   - title: About
     url: /about/
