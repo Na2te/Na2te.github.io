@@ -93,18 +93,10 @@ img.avatar{
   padding-top:10px !important;
 }
 
-#spread-icon-9{
-  padding-top:30px !important;
-  margin-top:30px !important;
+.material-icons{
+    padding-top: 10px !important;
+    margin-top: 10px !important;
 }
-
-// .material-icons{
-//     top: 50%; /* 부모 요소의 50% 위치에서부터 */
-//     left: 50%; /* 부모 요소의 50% 위치에서부터 */
-//     transform: translate(-50%, -50%); /* 이미지의 중심을 부모 요소의 중심으로 이동 */
-//     max-width: 100%; /* 이미지 최대 너비 설정 */
-//     max-height: 100%;
-// }
 
 #_sidebar > div.sidebar-sticky > div.sidebar-about > p{
   white-space: pre-line;
