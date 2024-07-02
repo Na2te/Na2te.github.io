@@ -105,8 +105,14 @@ img.avatar{
   padding-left: 30px
 }
 
+// Project 내부의 lucky 111 글자 위치 Project와 맞도록 정렬
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(2) > div:nth-child(2) > ul > li > div > a{
   padding-right: 20px;
+}
+
+//etc가 Study의 끝과 일치하도록 수정
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(3) > div > a{
+  padding-left: 20px;
 }
 
 .spread-btn{
