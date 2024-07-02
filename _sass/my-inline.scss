@@ -91,6 +91,11 @@ img.avatar{
   padding-left: 30px
 }
 
+// cs 버튼 ps와 맞도록 정렬
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(2) > div:nth-child(1){
+  padding-right: 20px;
+}
+
 .spread-btn{
   align-items:left;
   position:relative !important;
