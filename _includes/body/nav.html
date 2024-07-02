@@ -5,7 +5,7 @@
     {% assign url = node.url | default: node.href %}
     {% assign count = count | plus: 1 %}
     <li>
-        <div class="menu-wrapper">
+        <div class="menu-wrapper" sytle="overflow-y: auto">
             {% if node.submenu %}
             <button class="spread-btn" onclick="javascript:spread({{count}})">
                 <span id="spread-icon-{{count}}" class="material-icons">arrow_drop_down</span>
