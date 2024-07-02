@@ -62,8 +62,12 @@ img.avatar{
   text-align: center;
 }
 
-#_sidebar > div.sidebar-sticky > nav > ul > li {
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) {
   padding-right: 24px;
+}
+
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(2) {
+  padding-right: 20px;
 }
 
 // Programmers 글자 우측 정렬
