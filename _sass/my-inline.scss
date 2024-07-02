@@ -62,7 +62,7 @@ img.avatar{
   text-align: center;
 }
 
-#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) {
+#_sidebar > div.sidebar-sticky > nav > ul > li {
   padding-right: 24px;
 }
 
@@ -80,7 +80,13 @@ img.avatar{
 //   padding-right: 22px;
 // }
 
-#_drawer--opened
+#_sidebar>div.sidebar-sticky>nav>ul>li:nth-child(1)>div:nth-child(1)>a{
+  
+}
+
+#_drawer--opened{
+
+}
 
 
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(2){
