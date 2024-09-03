@@ -7,5 +7,5 @@ slug: boj
 
 description: >
   백준 문제 풀이 공간
-sitemap: false
+sitemap: true
 ---

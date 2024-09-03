@@ -7,5 +7,5 @@ slug: programmers
 
 description: >
   Programmers 문제 풀이 공간
-sitemap: false
+sitemap: true
 ---

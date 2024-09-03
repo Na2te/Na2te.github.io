@@ -7,5 +7,5 @@ slug: project
 
 description: >
   무럭무럭 성장 시켜 준 거름들
-sitemap: false
+sitemap: true
 ---

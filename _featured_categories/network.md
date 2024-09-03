@@ -7,5 +7,5 @@ slug: network
 
 description: >
   Network 지식 단권화
-sitemap: false
+sitemap: true
 ---

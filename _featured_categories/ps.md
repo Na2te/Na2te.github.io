@@ -7,5 +7,5 @@ slug: ps
 
 description: >
   알고리즘, 문제 풀이 카테고리
-sitemap: false
+sitemap: true
 ---

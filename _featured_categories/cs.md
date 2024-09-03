@@ -7,5 +7,5 @@ slug: cs
 
 description: >
   CS 공부 정리 카테고리
-sitemap: false
+sitemap: true
 ---
