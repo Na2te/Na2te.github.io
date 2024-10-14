@@ -71,6 +71,8 @@ menu:
     submenu: 
       - title: Lucky 111₂
         url: /lucky-111/
+      - title: Ijonsabae
+        url: /ijonsabae/
 
   - title: About
     url: /about/
