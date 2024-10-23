@@ -14,7 +14,9 @@ img.avatar{
 
 
 .menu-wrapper {
-    
+  display: flex;
+  justify-content: center;
+  align-items:center;
     margin-bottom: 0%;
   
     input[type=checkbox]{
