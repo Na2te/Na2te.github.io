@@ -102,11 +102,16 @@ img.avatar{
 }
 
 .spread-btn{
-  align-items:left;
+  display: flex;
+  justify-content: center;
+  align-items:center;
   position:relative !important;
   left: 0% !important;
   aspect-ratio: 1 / 1 !important;
   
+}
+.spread-btn.material-icons{
+
 }
 
 #_sidebar > div.sidebar-sticky > div.sidebar-about > p{
