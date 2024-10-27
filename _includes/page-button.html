@@ -22,14 +22,14 @@
   
     {% if current_index > 0 %}
       {% assign previous_post = posts[current_index | minus: 1] %}
-      <a id="prev" class="button" href="{{ post.previous.url | relative_url }}">&laquo; 이전글</a>
+      <a id="prev" class="button" href="{{ previous_post.url | relative_url }}">&laquo; 이전글</a>
     {% else %}
       <span class="prev-post disabled">이전 글이 없습니다</span>
     {% endif %}
   
     {% if current_index < posts.size | minus: 1 %}
       {% assign next_post = posts[current_index | plus: 1] %}
-      <a id="next" class="button" href="{{ post.next.url | relative_url }}">다음글 &raquo;</a>
+      <a id="next" class="button" href="{{ next_post.url | relative_url }}">다음글 &raquo;</a>
     {% else %}
       <span class="next-post disabled">다음 글이 없습니다</span>
     {% endif %}
