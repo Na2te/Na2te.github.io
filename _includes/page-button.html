@@ -14,6 +14,7 @@
 	</div>
 </div> -->
 
+
 <div class="post-control">
     {% assign last_category = page.categories | last %}
     {% assign posts = site.posts | where: "categories", last_category | sort: "date" %}
