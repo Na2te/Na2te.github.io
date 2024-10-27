@@ -1,11 +1,11 @@
-.page-control {
+.page-button {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   
-  .page-control > div {
+  .page-button > div {
     max-width: 50%;
   }
   
