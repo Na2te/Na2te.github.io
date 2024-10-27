@@ -30,11 +30,11 @@ layout: base
 {% unless addons %}{% assign addons = "about,newsletter,related,random" | split:"," %}{% endunless %}
 {% for addon in addons %}
   {% case addon %}
+  {% include page-button.html %}
   {% when 'about' %}
      {% include_cached components/about.html author=page.author %}
   {% when 'related' %}
     {% include if-non-null try="components/related-posts.html" %}
-  {% include page-button.html %}
   {% when 'comments' %}
     {% include body/comments.html %}
   {% else %}
