@@ -14,7 +14,6 @@
 	</div>
 </div> -->
 
-
 <div class="post-control">
     {% assign last_category = page.categories | last %}
     {% assign posts = site.posts | where: "categories", last_category | sort: "date" %}
@@ -25,7 +24,7 @@
         {% assign previous_post = posts[current_index | minus: 1] %}
         <a id="prev" class="button" href="{{ previous_post.url | relative_url }}">&laquo; 이전글</a>
       {% else %}
-        <span class="prev-post disabled">이전 글이 없습니다 {{current_index}}</span>
+        <span class="prev-post disabled">이전 글이 없습니다  </span>
       {% endif %}
       </div>
       <div>
@@ -33,7 +32,7 @@
         {% assign next_post = posts[current_index | plus: 1] %}
         <a id="next" class="button" href="{{ next_post.url | relative_url }}">다음글 &raquo;</a>
       {% else %}
-        <span class="next-post disabled">다음 글이 없습니다 {{current_index}}</span>
+        <span class="next-post disabled">다음 글이 없습니다 </span>
       {% endif %}
       </div>
     {% else %}
