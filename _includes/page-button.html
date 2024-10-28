@@ -19,16 +19,16 @@
         {{current_post_index}}
         {{next_post_index}}
       {% if current_post_index > 0 %}
-        {% assign previous_post = posts_in_category[previous_post_index] | last %}
-        <a id="prev" class="button" href="{{ previous_post.url | relative_url }}">&laquo; 이전글</a>
+        {% assign previous_post = posts_in_category[previous_post_index] %}
+        <a id="prev" class="button" href="{{ previous_post.url }}">&laquo; 이전글</a>
       {% else %}
 
       {% endif %}
       </div>
       <div>
       {% if current_post_index <= posts_in_category.size | minus: 1 %}
-        {% assign next_post = posts_in_category[next_post_index] | last %}
-        <a id="next" class="button" href="{{ next_post.url | relative_url }}">다음글 &raquo;</a>
+        {% assign next_post = posts_in_category[next_post_index] %}
+        <a id="next" class="button" href="{{ next_post.url }}">다음글 &raquo;</a>
       {% else %}
         <span class="next-post disabled">다음 글이 없습니다</span>
       {% endif %}
