@@ -22,7 +22,7 @@
       </div>
       <div>
       {% if current_post_index < posts_in_category.size | minus: 1 %}
-        {%- assign next_post = posts_in_category[current_post_index | plus: 2] -%}
+        {%- assign previous_post = posts_in_category | slice: 0, current_post_index+1 | last -%}
         <a id="next" class="button" href="{{ next_post.url | relative_url }}">다음글 &raquo;</a>
       {% else %}
         <span class="next-post disabled">다음 글이 없습니다</span>
