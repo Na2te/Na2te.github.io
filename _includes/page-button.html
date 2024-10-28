@@ -1,7 +1,7 @@
 {% assign post = include.post %}
 {% assign format = include.format | default:site.data.strings.date_formats.related_post | default:"%Y %m %d" %}
 
-<div class="post-control">
+<div class="page-control">
     {% assign last_category = page.categories | last %}
     {%- assign posts_in_category = site.categories[last_category] | sort: "date" -%}
     {% for post in posts_in_category %}
