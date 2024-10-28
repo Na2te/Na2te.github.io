@@ -14,7 +14,6 @@
       {% endif %}
     {% endfor %}
     {% if page.categories and page.categories.size > 0 %}
-    <!-- 디버그: current_index = {{ current_post_index }} -->
       <div>
       {% if current_post_index > 0 %}
         {% assign previous_post = posts_in_category[previous_post_index] %}
