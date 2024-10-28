@@ -12,7 +12,7 @@
         {%- assign previous_post = posts_in_category | slice: 0, current_post_index | last -%}
         <a id="prev" class="button" href="{{ previous_post.url | relative_url }}">&laquo; 이전글</a>
       {% else %}
-        <span class="prev-post disabled">이전 글이 없습니다 </span>
+        <span class="prev-post disabled">이전 글이 없습니다 {{ current_post_index }}</span>
       {% endif %}
       </div>
       <div>
@@ -20,7 +20,7 @@
         {%- assign next_post = posts_in_category | slice: current_post_index | offset: 1 | first -%}
         <a id="next" class="button" href="{{ next_post.url | relative_url }}">다음글 &raquo;</a>
       {% else %}
-        <span class="next-post disabled">다음 글이 없습니다 </span>
+        <span class="next-post disabled">다음 글이 없습니다 {{ current_post_index }}</span>
       {% endif %}
       </div>
     {% else %}
