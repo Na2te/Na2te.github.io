@@ -15,6 +15,9 @@
     {% if page.categories and page.categories.size > 0 %}
     <!-- 디버그: current_index = {{ current_post_index }} -->
       <div>
+        {{previous_post_index}}
+        {{current_post_index}}
+        {{next_post_index}}
       {% if current_post_index > 0 %}
         {%- assign previous_post = posts_in_category[previous_post_index] | last -%}
         <a id="prev" class="button" href="{{ previous_post.url | relative_url }}">&laquo; 이전글</a>
