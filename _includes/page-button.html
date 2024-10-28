@@ -9,6 +9,7 @@
         {% assign current_post_index = forloop.index0 %}
         {% assign previous_post_index = current_post_index | minus: 1 %}
         {% assign next_post_index = current_post_index | plus: 1 %}
+        {% assign last_index = posts_in_category.size | minus: 1 %}
         {% break %}
       {% endif %}
     {% endfor %}
@@ -18,6 +19,7 @@
         {{previous_post_index}}
         {{current_post_index}}
         {{next_post_index}}
+        {{posts_in_category.size}}
       {% if current_post_index > 0 %}
         {% assign previous_post = posts_in_category[previous_post_index] %}
         <a id="prev" class="button" href="{{ previous_post.url }}">&laquo; 이전글</a>
@@ -26,7 +28,7 @@
       {% endif %}
       </div>
       <div>
-      {% if current_post_index <= posts_in_category.size | minus: 1 %}
+      {% if current_post_index <= last_index %}
         {% assign next_post = posts_in_category[next_post_index] %}
         <a id="next" class="button" href="{{ next_post.url }}">다음글 &raquo;</a>
       {% else %}
