@@ -28,7 +28,7 @@
       {% endif %}
       </div>
       <div>
-      {% if current_post_index <= last_index %}
+      {% if current_post_index < last_index %}
         {% assign next_post = posts_in_category[next_post_index] %}
         <a id="next" class="button" href="{{ next_post.url }}">다음글 &raquo;</a>
       {% else %}
