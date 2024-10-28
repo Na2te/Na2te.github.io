@@ -1,36 +1,24 @@
 {% assign post = include.post %}
 {% assign format = include.format | default:site.data.strings.date_formats.related_post | default:"%Y %m %d" %}
 
-<!-- <div class="page-control">
-	<div>
-		{% if post.previous.url %}
-		<a id="prev" class="button" href="{{ post.previous.url | relative_url }}">&laquo; 이전글</a>
-		{% endif %}
-	</div>
-	<div>
-		{% if post.next.url %}
-		<a id="next" class="button" href="{{ post.next.url | relative_url }}">다음글 &raquo;</a>
-		{% endif %}
-	</div>
-</div> -->
-
 <div class="post-control">
     {% assign last_category = page.categories | last %}
     {% assign posts = site.posts | where: "categories", last_category | sort: "date" %}
     {% assign current_index = posts | index_of: page %}
     {% if page.categories and page.categories.size > 0 %}
+    <!-- 디버그: current_index = {{ current_index }} -->
       <div>
       {% if current_index > 0 %}
         {% assign previous_post = posts[current_index | minus: 1] %}
         <a id="prev" class="button" href="{{ previous_post.url | relative_url }}">&laquo; 이전글</a>
       {% else %}
-        <span class="prev-post disabled">이전 글이 없습니다 {{ current_index }}  </span>
+        <span class="prev-post disabled">이전 글이 없습니다 </span>
       {% endif %}
       </div>
       <div>
       {% if current_index < posts.size | minus: 1 %}
         {% assign next_post = posts[current_index | plus: 1] %}
-        <a id="next" class="button" href="{{ next_post.url | relative_url }}">다음글 {{ current_index }}&raquo;</a>
+        <a id="next" class="button" href="{{ next_post.url | relative_url }}">다음글 &raquo;</a>
       {% else %}
         <span class="next-post disabled">다음 글이 없습니다 </span>
       {% endif %}
