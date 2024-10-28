@@ -9,7 +9,7 @@
   }
   
   .page-control > div {
-    max-width: 40%;
+    max-width: 40% I !important;
   }
   
   .button {
