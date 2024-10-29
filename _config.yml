@@ -64,13 +64,13 @@ menu:
             url: /os/
           - title: Network
             url: /network/
-      - title: Android
-        url: /android/
       - title: FrontEnd
         url: /FrontEnd/
         menu:
           - title: React
             url: /react/
+      - title: Android
+        url: /android/
       - title: ETC
         url: /etc/
   - title: Project
