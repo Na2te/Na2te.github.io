@@ -68,6 +68,10 @@ img.avatar{
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) {
   padding-right: 24px;
 }
+// FrontEnd 칸 여백 설정
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(2) {
+  padding-right: 50px;
+}
 
 // project 칸 여백 설정
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(2) {
