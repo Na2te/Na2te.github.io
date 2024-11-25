@@ -147,7 +147,12 @@ img.avatar{
 
 // 2번째 자식부터 위로 마진 주기
 #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(2) > div:nth-child(1){
-  margin-top: 16;
+  margin-top: 16px;
+}
+
+// etc 마진 우측 정렬
+#_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(2) > ul > li:nth-child(5) > div{
+  margin-left: 50px;
 }
 
 // #_sidebar > div.sidebar-sticky > nav > ul > li:nth-child(1) > div:nth-child(1) > button{
