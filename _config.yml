@@ -65,7 +65,7 @@ menu:
           - title: Network
             url: /network/
       - title: FrontEnd
-        url: /FrontEnd/
+        url: /frontEnd/
         menu:
           - title: React
             url: /react/
