@@ -142,7 +142,7 @@ img.avatar{
   overflow-y: auto;
 }
 
-#_sidebar > div.sidebar-sticky::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 10px; /* 스크롤바 둥근 테두리 */
 }
 
