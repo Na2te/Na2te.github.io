@@ -1,10 +1,27 @@
-{% assign post = include.post %}
+<!-- {% assign post = include.post %} -->
 {% assign format = include.format | default:site.data.strings.date_formats.related_post | default:"%Y %m %d" %}
+
+
+
 
 <div class="page-control">
     {% assign last_category = page.categories | last %}
-    {%- assign posts_in_category = site.categories[last_category] | sort: "date" -%}
-    {%- assign posts_in_category = posts_in_category | sort: "post.title" -%}
+    <!-- {%- assign posts_in_category = site.categories[last_category] | sort: "date" -%}
+    {%- assign posts_in_category = posts_in_category | sort: "title" -%} -->
+
+    <!-- 1단계: 날짜 순으로 정렬 -->
+    {% assign posts_in_category = posts_in_category | sort: "date" %}
+
+    <!-- 2단계: 날짜별로 그룹화 -->
+    {% assign grouped_posts = posts_in_category | group_by: "date" %}
+
+    <!-- 3단계: 각 날짜별로 제목 오름차순 정렬하고, 최종적으로 posts_in_category에 다시 할당 -->
+    {% assign posts_in_category = "" %}
+    {% for group in grouped_posts %}
+      {% assign sorted_group = group.items | sort: "title" %}
+      {% assign posts_in_category = posts_in_category | concat: sorted_group %}
+    {% endfor %}
+
     {% for post in posts_in_category %}
       {% if post.url == page.url %}
         {% assign current_post_index = forloop.index0 %}
