@@ -8,6 +8,10 @@ mark {
   font-weight: bold;
 }
 
+#_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover > img {
+  aspect-ratio: 1 / 1 !important;
+}
+
 img.avatar{
     width:9rem;
     max-width: 100%;
