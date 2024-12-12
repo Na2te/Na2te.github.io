@@ -9,7 +9,8 @@ mark {
 }
 
 #_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover > img {
-  height: 144px
+  height: 144px;
+  object-fit: cover;
 }
 
 img.avatar{
