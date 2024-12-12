@@ -8,10 +8,12 @@ mark {
   font-weight: bold;
 }
 
-#_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover > img {
-  object-fit: cover;
+#_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover{
   aspect-ratio: 1 / 1 !important;
-  padding-bottom: 100%;
+}
+#_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover > img {
+  display: block;
+  object-fit: cover;
 }
 
 img.avatar{
