@@ -8,12 +8,8 @@ mark {
   font-weight: bold;
 }
 
-#_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover{
-  aspect-ratio: 1 / 1 !important;
-}
 #_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover > img {
-  display: block;
-  object-fit: cover;
+  height: 144px
 }
 
 img.avatar{
