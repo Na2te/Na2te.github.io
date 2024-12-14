@@ -43,13 +43,13 @@ Android Project를 생성하면 보이는 local.propreties는 .gitignore 파일�
 
 ## Local Properties로 변경
  + ### local.properties 값 설정
- 우선 local.properties에 민감한 데이터를 Key=Value 꼴로 저장한다.
- ~~~
- // file: "local.properties"
- // sdk.dir이라는 내용이 있을텐데 이는 건드리면 안된다.
- // 서버 아이피에 대한 내용 설정
- server_ip="https://jsonplaceholder.typicode.com/todos/"
- ~~~
+   우선 local.properties에 민감한 데이터를 Key=Value 꼴로 저장한다.
+   ~~~
+   // file: "local.properties"
+   // sdk.dir이라는 내용이 있을텐데 이는 건드리면 안된다.
+   // 서버 아이피에 대한 내용 설정
+   server_ip="https://jsonplaceholder.typicode.com/todos/"
+   ~~~
 
  + ### Gradle에서 Local Properties 불러오기
     자신이 불러올 모듈에서 Local Properties를 불러온다.
