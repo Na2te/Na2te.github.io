@@ -1,0 +1,147 @@
+---
+layout: post
+title: 04. Local Properties를 이용하여 서버 IP 등 민감 정보 숨기기
+categories: [study, android]
+tags: [blog]
+---
+
+- toc
+{:toc .large-only}
+
+## 개요
+
+프로젝트를 진행하면서 API를 연결하는 경험을 겪게 된다.
+
+다만 진행했던 프로젝트는 Private Repository에서 진행하거나 하는 등의 이유로 크게 문제가 없었겠지만,      
+문득 돌이켜보면 서버 IP 등 Git, Repository 등 **외부로 노출되어서는 안되는 데이터**들이 있었을 것이다.
+
+이런 경우 **어떻게 해야 할까?**에 대한 내용을 작성하고자 한다.
+
++ ### 실습 코드
+<a href="https://github.com/HangeulMansae/AndroidOriginModule" title="GitHub" class="no-mark-external" target="_blank" style="width: 3rem; height: 4rem; font-size: 1.4rem; line-height: 3rem; border-bottom-width: 2px;
+    border-bottom-style: solid; text-decoration: none; padding: 0 0 .5rem 0;"> 
+    <span class="icon-github"></span>
+</a>
+
+## 기존 방식
+기존에는 아래와 같이 서버의 주소를 넣는 공간에 <mark>그대로 URL을 삽입하거나</mark>, <mark>변수로 주소를 만들어서 삽입하여</mark> Retrofit을 세팅하고, API를 호출하는 과정을 거쳤을 것이다.
+
+![기존 코드](/assets/img/study/android/Local%20Properties를%20이용하여%20서버%20IP%20등%20민감%20정보%20숨기기/기존%20코드.png.png){:.lead lazy}{: width="800"}
+안좋은 코드
+{:.figcatpion}    
+
+<mark>다만 이 경우 Git에 그대로 노출이 되게 된다.</mark>
+
+변수로 할당을 하더라도 변수로 선언하는 부분에서 주소가 있기 때문에 이 역시 동일한 문제점을 가진다.
+
+그렇다면 어떻게 해야 할까?
+
+## Local Properties
+Android Project를 생성하면 보이는 local.propreties는 .gitignore 파일에 들어가 있어, Git의 버전 관리에는 포함이 되지 않는다.
+
+이를 통해, 민감한 정보는 local.properties에 기록한 뒤, 이를 불러와 사용함으로써 외부에 노출되지 않으면서 안전하게 사용할 수 있다.
+
+## Local Properties로 변경
+ + ### local.properties 값 설정
+ 우선 local.properties에 민감한 데이터를 Key=Value 꼴로 저장한다.
+ ~~~
+ // file: "local.properties"
+ // sdk.dir이라는 내용이 있을텐데 이는 건드리면 안된다.
+ // 서버 아이피에 대한 내용 설정
+ server_ip="https://jsonplaceholder.typicode.com/todos/"
+ ~~~
+
+ + ### Gradle에서 Local Properties 불러오기
+    자신이 불러올 모듈에서 Local Properties를 불러온다.
+
+    Multi Module을 사용할 경우 해당 Key값을 사용할 Module에서 설정을 진행하면 된다.
+
+    Manifest에서 사용할 떄와, 다른 파일에서 사용할 때의 설정이 약간 다르니 주의하자!
+    {:.faded}
+    {:.note title="Caution"} 
+
+    ~~~kotlin
+    // file: "build.gradle.kts"
+    plugins {
+        alias(libs.plugins.android.application)
+        alias(libs.plugins.kotlin.android)
+        alias(libs.plugins.kotlin.compose)
+    }
+
+    // local.properties 파일 불러오기
+    private val properties = Properties().apply {
+        load(FileInputStream(rootProject.file("local.properties")))
+    }
+
+    // local.properties에 server_ip라는 키의 Value를 가지고 옮
+    val serverIP: String = properties.getProperty("server_ip")
+
+
+
+    android {
+        defaultConfig {
+            applicationId = "com.hangeulmansae.androidoriginmodule"
+            minSdk = 28
+            targetSdk = 34
+            versionCode = 1
+            versionName = "1.0"
+
+            // Manifest에서 사용해야 할 경우 => Manifest에서는 ${SERVER_IP}로 접근할 수 있다.
+            manifestPlaceholders["SERVER_IP"] = serverIP
+
+            // Fragment 등 기타 파일에서 사용해야 할 경우
+            buildConfigField("String", "SERVER_IP", serverIP)
+
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
+
+        // Fragment등에서 사용하기 위해 설정
+        buildFeatures {
+            buildConfig = true
+        }
+
+        // 이하 생략
+    }
+    ~~~
+
+    이렇게 설정을 다 하고 나면 관련 파일에서
+    ~~~
+    // file: "ProjectApplication.kt"
+
+    // BuildConfig를 이용해, BuildGradle에서 불러왔던 서버 주소 가져오기
+    const val SERVER_URL = BuildConfig.SERVER_IP
+
+    class ProjectApplication : Application() {
+        companion object {
+            lateinit var retrofit: Retrofit
+        }
+
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+
+        // 기타 세팅...
+
+        retrofit = Retrofit.Builder()
+
+            // 여기서 BuildConfig로 가져온 변수를 대입
+            .baseUrl(SERVER_URL)
+
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+    }
+    ~~~
+
+    이와 같은 과정을 통해 서버 주소를 직접적으로 외부에 노출시키지 않고도 세팅하여 프로젝트를 빌드할 수 있다
+
+    만약 BuildConfig 등이 빨간 줄이 뜨더라도 아직 Build가 돌아가지 않아서 그런 것이니 겁먹지 말자!     
+    만약 빌드를 해도 똑같다면, Invalidate Cache를 진행하면 된다.
+    {:.faded}
+    {:.note title="Note"} 
+
+## 회고
+이번에 local.properties를 이용하여 외부에 민감한 데이터를 숨기는 방법을 진행하였다.
+
+다만 뭔가 아쉬운 점이 있었고, 추후 이를 개선한 방안을 소개하고자 한다.
