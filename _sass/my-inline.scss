@@ -58,8 +58,10 @@ img.avatar{
     margin-bottom: 0px !important;
 }
 
+// figcaption 이미지 가운데 정렬 및 figcaption이랑 단락 분리
 p.figcaption > img {
   display: block;
+  margin: 0 auto;
 }
 
 
