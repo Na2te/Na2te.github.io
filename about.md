@@ -11,7 +11,66 @@ redirect_from:
 <!--author-->
 
 ## Portfolio
-<iframe src="https://1drv.ms/p/c/e97f777dd6730be9/IQS9CRxf55uhQ703lxZvPW3UAU8AttAFxKsB8a9xt-FlhFk?em=2&amp;wdAr=1.7777777777777777" width="952px" height="534px" frameborder="0">포함된 <a target="_blank" href="https://office.com">Microsoft Office</a> 프레젠테이션, 제공: <a target="_blank" href="https://office.com/webapps">Office</a></iframe>
+
+<div id="loadingContainer">
+    <div class="spinner"></div>
+    <p>로딩 중입니다...</p>
+</div>
+
+<div id="iframeContainer"></div>
+
+<script>
+    function loadIframe() {
+        let container = document.getElementById('iframeContainer');
+        let iframe = document.createElement('iframe');
+        iframe.src = "https://1drv.ms/p/c/e97f777dd6730be9/IQS9CRxf55uhQ703lxZvPW3UAU8AttAFxKsB8a9xt-FlhFk?em=2&wdAr=1.7777777777777777";
+        iframe.width = "952px";
+        iframe.height = "534px";
+        iframe.frameBorder = "0";
+        iframe.onload = function() {
+            document.getElementById('loadingContainer').style.display = 'none';
+        };
+        container.appendChild(iframe);
+    }
+
+    // 페이지가 로드된 후 iframe 로드
+    window.onload = loadIframe;
+</script>
+
+<style>
+    /* 로딩 메시지 스타일 */
+    #loadingContainer {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: white;
+    }
+
+    /* 로딩 스피너 */
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #ccc;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 10px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<!-- <iframe src="https://1drv.ms/p/c/e97f777dd6730be9/IQS9CRxf55uhQ703lxZvPW3UAU8AttAFxKsB8a9xt-FlhFk?em=2&amp;wdAr=1.7777777777777777" width="952px" height="534px" frameborder="0">포함된 <a target="_blank" href="https://office.com">Microsoft Office</a> 프레젠테이션, 제공: <a target="_blank" href="https://office.com/webapps">Office</a></iframe> -->
 
 <!-- :toc를 하면 글 목록이 리스트로 자동 정렬 및 생성 된다-->
 <!-- 이거 하면 이 태그 위에 적혀있는 글을 사진 아래에 작은 설명 같은 걸로 첨부하는 것 가능{:.figcaption} -->
