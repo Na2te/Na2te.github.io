@@ -53,7 +53,7 @@ redirect_from:
     }
 
     // 페이지가 로드된 후 iframe 로드
-    window.onload = loadIframe;
+    loadIframe();
 </script>
 {% endraw %}
 
