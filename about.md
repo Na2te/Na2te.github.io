@@ -20,19 +20,11 @@ redirect_from:
 <div id="iframeContainer"></div>
 
 <script type="text/javascript">
-    console.log("x");      
-
-
-
     function hide(){      
-      console.log("hide 실행");            
       document.getElementById('loadingContainer').style.display = 'none';            
     }            
 
-
-
     function loadIframe() {      
-      console.log("iframe 로딩 실행");            
         let container = document.getElementById('iframeContainer');                  
         let iframe = document.createElement('iframe');                  
         
@@ -58,7 +50,6 @@ redirect_from:
       
         container.appendChild(iframe);            
     }            
-
 
     window.onload = loadIframe;      
 </script>
