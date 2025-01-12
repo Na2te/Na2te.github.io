@@ -5,7 +5,7 @@ hide_description: true
 redirect_from:
   - /download/
 custom_js:
-  - assets\js\loading-portfolio.js
+  - /assets/js/loading-portfolio.js
 ---
 
 # About
