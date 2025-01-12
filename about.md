@@ -52,7 +52,7 @@ redirect_from:
         container.appendChild(iframe);            
     }            
 
-    window.onload = loadIframe;      
+    window.onpageshow = loadIframe;      
 </script>
 
 <style>
