@@ -20,6 +20,9 @@ redirect_from:
 <div id="iframeContainer"></div>
 
 <script>
+    function hide(){
+      document.getElementById('loadingContainer').style.display = 'none';
+    }
     function loadIframe() {
         let container = document.getElementById('iframeContainer');
         let iframe = document.createElement('iframe');
@@ -27,9 +30,7 @@ redirect_from:
         iframe.width = "952px";
         iframe.height = "534px";
         iframe.frameBorder = "0";
-        iframe.onload = function() {
-            document.getElementById('loadingContainer').style.display = 'none';
-        };
+        iframe.onload = hide();
         // a 태그 생성
         const officeLink = document.createElement('a');
         officeLink.href = "https://office.com";
@@ -48,7 +49,7 @@ redirect_from:
     }
 
     // 페이지가 로드된 후 iframe 로드
-    window.onload = loadIframe;
+    window.onload = loadIframe();
 </script>
 
 <style>
