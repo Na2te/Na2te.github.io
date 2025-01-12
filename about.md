@@ -53,7 +53,7 @@ redirect_from:
         container.appendChild(iframe);      
     }      
 
-    // 페이지가 로드된 후 iframe 로드
+    // 페이지가 로드된 후 iframe 로드      
     loadIframe();
 </script>
 {% endraw %}
