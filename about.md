@@ -22,10 +22,12 @@ redirect_from:
 {% raw %}
 <script type="text/javascript">
     console.log("x")      
+
     function hide(){      
       console.log("hide 실행")            
       document.getElementById('loadingContainer').style.display = 'none';            
     }            
+
     function loadIframe() {      
       console.log("iframe 로딩 실행")            
         let container = document.getElementById('iframeContainer');                  
@@ -54,6 +56,7 @@ redirect_from:
     }            
       
     // 페이지가 로드된 후 iframe 로드            
+    
     loadIframe();      
 </script>
 {% endraw %}
