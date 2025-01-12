@@ -23,16 +23,21 @@ redirect_from:
 <script type="text/javascript">
     console.log("x")      
 
+    
+
     function hide(){      
       console.log("hide 실행")            
       document.getElementById('loadingContainer').style.display = 'none';            
     }            
 
+
+
     function loadIframe() {      
       console.log("iframe 로딩 실행")            
         let container = document.getElementById('iframeContainer');                  
         let iframe = document.createElement('iframe');                  
-            
+        
+        
         iframe.src = "https://1drv.ms/p/c/e97f777dd6730be9/IQS9CRxf55uhQ703lxZvPW3UAU8AttAFxKsB8a9xt-FlhFk?em=2&wdAr=1.7777777777777777";            
         iframe.width = "952px";            
         iframe.height = "534px";            
@@ -54,9 +59,8 @@ redirect_from:
       
         container.appendChild(iframe);            
     }            
-      
-    // 페이지가 로드된 후 iframe 로드            
-    
+
+
     loadIframe();      
 </script>
 {% endraw %}
