@@ -30,6 +30,20 @@ redirect_from:
         iframe.onload = function() {
             document.getElementById('loadingContainer').style.display = 'none';
         };
+        // a 태그 생성
+        const officeLink = document.createElement('a');
+        officeLink.href = "https://office.com";
+        officeLink.target = "_blank";
+        officeLink.textContent = "Microsoft Office";
+        
+        const webappsLink = document.createElement('a');
+        webappsLink.href = "https://office.com/webapps";
+        webappsLink.target = "_blank";
+        webappsLink.textContent = "Office";
+
+        iframe.appendChild(officeLink);
+        iframe.appendChild(webappsLink);
+
         container.appendChild(iframe);
     }
 
