@@ -19,11 +19,10 @@ redirect_from:
 
 <div id="iframeContainer"></div>
 
-{% raw %}
 <script type="text/javascript">
     console.log("x")      
 
-    
+
 
     function hide(){      
       console.log("hide 실행")            
@@ -63,7 +62,6 @@ redirect_from:
 
     loadIframe();      
 </script>
-{% endraw %}
 
 <style>
     /* 로딩 메시지 스타일 */
