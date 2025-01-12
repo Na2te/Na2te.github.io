@@ -60,7 +60,7 @@ redirect_from:
     }            
 
 
-    loadIframe();      
+    window.onload = loadIframe;      
 </script>
 
 <style>
