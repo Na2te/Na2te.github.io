@@ -70,8 +70,7 @@ redirect_from:
         font-size: 16px;
         font-weight: bold;
         position: absolute;
-        width: 100%;
-        height: 100vh;
+        
         display: flex;
         align-items: center;
         justify-content: center;
