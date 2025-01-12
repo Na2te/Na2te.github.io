@@ -20,6 +20,7 @@ redirect_from:
 <div id="iframeContainer"></div>
 
 <script>
+    console.log("x")
     function hide(){
       console.log("hide 실행")
       document.getElementById('loadingContainer').style.display = 'none';
