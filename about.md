@@ -44,6 +44,7 @@ redirect_from:
         webappsLink.href = "https://office.com/webapps";            
         webappsLink.target = "_blank";                  
         webappsLink.textContent = "Office";            
+        webappsLink.onload = hide;                  
       
         iframe.appendChild(officeLink);            
         iframe.appendChild(webappsLink);            
