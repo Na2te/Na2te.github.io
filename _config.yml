@@ -42,6 +42,8 @@ author:
   # Used by `jekyll-feed`:
   name: <YoungMin> <Shin>
   email: <111sym@naver.com>
+feed:
+  path: atom.xml
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
