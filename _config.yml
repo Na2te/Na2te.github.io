@@ -40,8 +40,8 @@ logo: /assets/img/main-logo.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name: <YoungMin> <Shin>
-  email: <111sym@naver.com>
+  name: YoungMin Shin
+  email: 111sym@naver.com
 feed:
   path: atom.xml
   # # Used by `jekyll-seo-tag`:
