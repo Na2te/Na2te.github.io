@@ -2,11 +2,17 @@
 // .sidebar a {
 //   text-shadow: rgba(0, 0, 0, 0.25) 0.1rem 0.1rem 0.15rem;
 // }
+// 형광펜 효과 할 시 적용할 css
 mark {
   background-color: #fbf3db;
   color: #000000;
   font-weight: bold;
 }
+
+code .language-plaintext {
+  color: #eb5757
+  background-color: #ededeb
+} 
 
 #_sidebar > div.sidebar-sticky > div.sidebar-about > a.no-hover > img {
   height: 144px;
