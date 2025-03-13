@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://hangeulmansae.github.io/sitemap.xml
+Sitemap: https://hangeulmansae.github.io/tempsitemap.xml
