@@ -382,9 +382,9 @@ google_site_verification: sY7uBdoi931ojuziKuXK9xsj8qj0UudB5CamCPE8mNs
 
 # Used on index and about sites
 social:
-  name: <YoungMin> <Shin>
+  name: YoungMin Shin
   links:
-    - https://twitter.com/<username>
+    # - https://twitter.com/<username>
     - https://github.com/HangeulMansae
 
 # Plugin Configs
