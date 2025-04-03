@@ -4,6 +4,8 @@
     href="{{ include.href }}"
     {% if include.rel %}rel="{{ include.rel }}"{% endif %}
     {% if include.property %}property="{{ include.property }}"{% endif %}
+    target="_blank"
+    rel="noopener noreferrer"
   >
     {{- include.title -}}
   </a>
