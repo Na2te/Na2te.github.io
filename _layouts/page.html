@@ -16,29 +16,12 @@
 
 layout: base
 ---
-
-<script>
-  document.addEventListener("DOMContentLoaded", function(){
-    console.log("a링크 변환 실행")
-    document.querySelectorAll(".post-content a").forEach(link => {
-      const href = link.getAttribute("href");
-      // 내부 앵커 링크 (예: #section1)는 제외
-      if (href && !href.startsWith("#")) {
-        link.setAttribute("target", "_blank");
-        link.setAttribute("rel", "noopener noreferrer");
-      }
-    });
-  });
-</script>
-
 <article class="page mb6" role="article">
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
     {% include components/message.html text=page.description hide=page.hide_description %}
   </header>
-  <div class="post-content">
-    {{ content }}
-  </div>
+  {{ content }}
 </article>
 
 {% include components/dingbat.html %}
