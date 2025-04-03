@@ -6,6 +6,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(){
+    console.log("a링크 변환 실행");
     document.querySelectorAll(".post-content a").forEach(link => {
       const href = link.getAttribute("href");
       // 내부 앵커 링크 (예: #section1)는 제외
