@@ -3,7 +3,7 @@
 
 # Uncomment and set the URL of your site (with protocol, e.g. `https://`)
 # NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
-# url: https://hangeulmansae.github.io
+# url: https://na2te.github.io
 
 # Uncomment and set the "base URL" of your site.
 # When your site is in a subdirectory, set to `/<name of directory>`,
@@ -19,12 +19,12 @@
 lang: "ko-KR"
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title: HangeulMansae
+title: Na2te
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description: >
-  HangeulMansae의 블로그입니다.
+  Na2te의 블로그입니다.
 # A shorter description for the sidebar.
 tagline: "어제보다 더 나은 하루를 향해"
 
@@ -97,7 +97,7 @@ legal:
     url: /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright: © 2021. HangeulMansae All rights reserved.
+copyright: © 2025. Na2te All rights reserved.
 
 # Format of the permalinks
 permalink: /:categories/:year-:month-:day-:title/
@@ -385,7 +385,7 @@ social:
   name: YoungMin Shin
   links:
     # - https://twitter.com/<username>
-    - https://github.com/HangeulMansae
+    - https://github.com/Na2te
 
 # Plugin Configs
 # ---------------------------------------------------------------------------------------
