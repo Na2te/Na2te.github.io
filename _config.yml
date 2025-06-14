@@ -66,18 +66,18 @@ menu:
             url: /os/
           - title: Network
             url: /network/
+      - title: Android
+        url: /android/
       - title: FrontEnd
         url: /frontend/
         menu:
           - title: React
             url: /react/
-      - title: Android
-        url: /android/
       - title: ETC
         url: /etc/
   - title: Project
     url: /project/
-    submenu: 
+    submenu:
       - title: Lucky 111₂
         url: /lucky-111/
       - title: Ijonsabae
@@ -197,7 +197,7 @@ kramdown:
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:      G-0FMS2DN2NR
+google_analytics: G-0FMS2DN2NR
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
