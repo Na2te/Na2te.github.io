@@ -29,7 +29,7 @@ redirect_from:
         let iframe = document.createElement('iframe');                  
         
         
-        iframe.src = "https://1drv.ms/p/c/e97f777dd6730be9/IQS9CRxf55uhQ703lxZvPW3UAU8AttAFxKsB8a9xt-FlhFk?em=2&wdAr=1.7777777777777777";            
+        iframe.src = "https://1drv.ms/p/c/e97f777dd6730be9/IQS9CRxf55uhQ703lxZvPW3UAU8AttAFxKsB8a9xt-FlhFk";            
         iframe.width = "952px";            
         iframe.height = "534px";            
         iframe.frameBorder = "0";                  
