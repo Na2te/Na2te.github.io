@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
 Sitemap: https://na2te.github.io/sitemap.xml
+Sitemap: https://na2te.github.io/site-test.xml
+Sitemap: https://na2te.github.io/site.xml
+Sitemap: https://na2te.github.io/sitemap-index.xml
+Sitemap: https://na2te.github.io/sitemap.xml
