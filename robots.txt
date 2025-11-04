@@ -1,3 +1,3 @@
 User-agent: *
-Allow: /
+Allow: /sitemap.xml
 Sitemap: https://na2te.github.io/sitemap.xml
